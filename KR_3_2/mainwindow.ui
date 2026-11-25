@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+  <class>MainWindow</class>
+  <widget class="QMainWindow" name="MainWindow">
+    <property name="geometry">
+      <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1500</width>
+        <height>920</height>
+      </rect>
+    </property>
+    <property name="windowTitle">
+      <string>НСУ БПЛА · MAVLink по UDP · Практическое занятие №4 · Вариант 1</string>
+    </property>
+    <widget class="QWidget" name="centralwidget">
+      <layout class="QVBoxLayout" name="layoutMain">
+        <item>
+          <layout class="QHBoxLayout" name="layoutHeader">
+            <item>
+              <widget class="QLabel" name="labelTitle">
+                <property name="text">
+                  <string>GROUND CONTROL STATION</string>
+                </property>
+              </widget>
+            </item>
+            <item>
+              <widget class="QLabel" name="labelSubtitle">
+                <property name="text">
+                  <string>MAVLink 2 · UDP 127.0.0.1:14540</string>
+                </property>
+              </widget>
+            </item>
+            <item>
+              <spacer name="spacerHeader">
+                <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                  <size>
+                    <width>20</width>
+                    <height>20</height>
+                  </size>
+                </property>
+              </spacer>
+            </item>
+            <item>
+              <widget class="QLabel" name="labelQuality">
+                <property name="text">
+                  <string>0.0 пакет/с</string>
+                </property>
+              </widget>
+            </item>
+            <item>
+              <widget class="QLabel" name="labelLinkStatus">
+                <property name="text">
+                  <string>Связь отсутствует</string>
+                </property>
+                <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                </property>
+              </widget>
+            </item>
+          </layout>
+        </item>
+        <item>
+          <layout class="QHBoxLayout" name="layoutBody" stretch="0,1,0">
+            <item>
+              <layout class="QVBoxLayout" name="layoutLeft">
+                <item>
+                  <widget class="QGroupBox" name="groupLink">
+                    <property name="title">
+                      <string>Канал связи</string>
+                    </property>
+                    <layout class="QGridLayout" name="gridLink">
+                      <item row="0" column="0">
+                        <widget class="QLabel" name="labelSenderTitle">
+                          <property name="text">
+                            <string>Отправитель:</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="0" column="1">
+                        <widget class="QLabel" name="labelSender">
+                          <property name="text">
+                            <string>—</string>
+                          </property>
+                          <property name="alignment">
+                            <set>Qt::AlignRight|Qt::AlignVCenter</set>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="1" column="0">
+                        <widget class="QLabel" name="labelPacketsTitle">
+                          <property name="text">
+                            <string>Пакеты:</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="1" column="1">
+                        <widget class="QLabel" name="labelPackets">
+                          <property name="text">
+                            <string>Принято: 0 | Потеряно: 0</string>
+                          </property>
+                          <property name="alignment">
+                            <set>Qt::AlignRight|Qt::AlignVCenter</set>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="2" column="0">
+                        <widget class="QLabel" name="labelErrorsTitle">
+                          <property name="text">
+                            <string>Ошибочных:</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="2" column="1">
+                        <widget class="QLabel" name="labelErrors">
+                          <property name="text">
+                            <string>0</string>
+                          </property>
+                          <property name="alignment">
+                            <set>Qt::AlignRight|Qt::AlignVCenter</set>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="3" column="0">
+                        <widget class="QLabel" name="labelLastPacketTitle">
+                          <property name="text">
+                            <string>Последний пакет:</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="3" column="1">
+                        <widget class="QLabel" name="labelLastPacket">
+                          <property name="text">
+                            <string>—</string>
+                          </property>
+                          <property name="alignment">
+                            <set>Qt::AlignRight|Qt::AlignVCenter</set>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="4" column="0">
+                        <widget class="QPushButton" name="btnStartLink">
+                          <property name="text">
+                            <string>Открыть канал</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="4" column="1">
+                        <widget class="QPushButton" name="btnStopLink">
+                          <property name="text">
+                            <string>Закрыть канал</string>
+                          </property>
+                        </widget>
+                      </item>
+                    </layout>
+                  </widget>
+                </item>
+                <item>
+                  <widget class="QGroupBox" name="groupTelemetry">
+                    <property name="title">
+                      <string>Телеметрия БПЛА</string>
+                    </property>
+                    <layout class="QGridLayout" name="gridTelemetry">
+                      <item row="0" column="0">
+                        <widget class="QLabel" name="labelLatitudeTitle">
+                          <property name="text">
+                            <string>Широта:</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="0" column="1">
+                        <widget class="QLabel" name="labelLatitude">
+                          <property name="text">
+                            <string>—</string>
+                          </property>
+                          <property name="alignment">
+                            <set>Qt::AlignRight|Qt::AlignVCenter</set>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="1" column="0">
+                        <widget class="QLabel" name="labelLongitudeTitle">
+                          <property name="text">
+                            <string>Долгота:</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="1" column="1">
+                        <widget class="QLabel" name="labelLongitude">
+                          <property name="text">
+                            <string>—</string>
+                          </property>
+                          <property name="alignment">
+                            <set>Qt::AlignRight|Qt::AlignVCenter</set>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="2" column="0">
+                        <widget class="QLabel" name="labelAltitudeTitle">
+                          <property name="text">
+                            <string>Высота:</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="2" column="1">
+                        <widget class="QLabel" name="labelAltitude">
+                          <property name="text">
+                            <string>—</string>
+                          </property>
+                          <property name="alignment">
+                            <set>Qt::AlignRight|Qt::AlignVCenter</set>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="3" column="0">
+                        <widget class="QLabel" name="labelVerticalSpeedTitle">
+                          <property name="text">
+                            <string>Верт. скорость:</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="3" column="1">
+                        <widget class="QLabel" name="labelVerticalSpeed">
+                          <property name="text">
+                            <string>—</string>
+                          </property>
+                          <property name="alignment">
+                            <set>Qt::AlignRight|Qt::AlignVCenter</set>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="4" column="0">
+                        <widget class="QLabel" name="labelFlightModeTitle">
+                          <property name="text">
+                            <string>Режим полёта:</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="4" column="1">
+                        <widget class="QLabel" name="labelFlightMode">
+                          <property name="text">
+                            <string>—</string>
+                          </property>
+                          <property name="alignment">
+                            <set>Qt::AlignRight|Qt::AlignVCenter</set>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="5" column="0">
+                        <widget class="QLabel" name="labelUavStatusTitle">
+                          <property name="text">
+                            <string>Состояние БПЛА:</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="5" column="1">
+                        <widget class="QLabel" name="labelUavStatus">
+                          <property name="text">
+                            <string>—</string>
+                          </property>
+                          <property name="alignment">
+                            <set>Qt::AlignRight|Qt::AlignVCenter</set>
+                          </property>
+                        </widget>
+                      </item>
+                    </layout>
+                  </widget>
+                </item>
+                <item>
+                  <widget class="QGroupBox" name="groupCommands">
+                    <property name="title">
+                      <string>Команды</string>
+                    </property>
+                    <layout class="QGridLayout" name="gridCommands">
+                      <item row="0" column="0">
+                        <widget class="QLabel" name="labelTakeoffTitle">
+                          <property name="text">
+                            <string>Высота взлёта:</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="0" column="1">
+                        <widget class="QDoubleSpinBox" name="spinTakeoffAltitude">
+                          <property name="decimals">
+                            <number>0</number>
+                          </property>
+                          <property name="minimum">
+                            <double>10.000000000000000</double>
+                          </property>
+                          <property name="maximum">
+                            <double>500.000000000000000</double>
+                          </property>
+                          <property name="singleStep">
+                            <double>10.000000000000000</double>
+                          </property>
+                          <property name="value">
+                            <double>50.000000000000000</double>
+                          </property>
+                          <property name="suffix">
+                            <string> м</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="1" column="0">
+                        <widget class="QPushButton" name="btnTakeoff">
+                          <property name="text">
+                            <string>Взлёт</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="1" column="1">
+                        <widget class="QPushButton" name="btnLand">
+                          <property name="text">
+                            <string>Посадка</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="2" column="0" colspan="2">
+                        <widget class="QProgressBar" name="progressAck">
+                          <property name="maximum">
+                            <number>3000</number>
+                          </property>
+                          <property name="value">
+                            <number>0</number>
+                          </property>
+                          <property name="textVisible">
+                            <bool>false</bool>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="3" column="0" colspan="2">
+                        <widget class="QLabel" name="labelCommandStatus">
+                          <property name="text">
+                            <string>Статус: команд не было</string>
+                          </property>
+                          <property name="wordWrap">
+                            <bool>true</bool>
+                          </property>
+                        </widget>
+                      </item>
+                    </layout>
+                  </widget>
+                </item>
+                <item>
+                  <spacer name="spacerLeft">
+                    <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                      <size>
+                        <width>20</width>
+                        <height>20</height>
+                      </size>
+                    </property>
+                  </spacer>
+                </item>
+              </layout>
+            </item>
+            <item>
+              <layout class="QVBoxLayout" name="layoutCenter" stretch="3,2">
+                <item>
+                  <widget class="QGroupBox" name="groupChart">
+                    <property name="title">
+                      <string>Высота и вертикальная скорость</string>
+                    </property>
+                    <layout class="QVBoxLayout" name="layoutChart">
+                      <item>
+                        <widget class="QWidget" name="chartContainer">
+                          <property name="minimumSize">
+                            <size>
+                              <width>500</width>
+                              <height>300</height>
+                            </size>
+                          </property>
+                        </widget>
+                      </item>
+                    </layout>
+                  </widget>
+                </item>
+                <item>
+                  <widget class="QGroupBox" name="groupEventLog">
+                    <property name="title">
+                      <string>Журнал событий</string>
+                    </property>
+                    <layout class="QVBoxLayout" name="layoutEventLog">
+                      <item>
+                        <widget class="QListWidget" name="listEventLog" />
+                      </item>
+                    </layout>
+                  </widget>
+                </item>
+              </layout>
+            </item>
+            <item>
+              <layout class="QVBoxLayout" name="layoutRight">
+                <item>
+                  <widget class="QGroupBox" name="groupSimulator">
+                    <property name="title">
+                      <string>Эмулятор БПЛА</string>
+                    </property>
+                    <layout class="QGridLayout" name="gridSimulator">
+                      <item row="0" column="0" colspan="2">
+                        <widget class="QLabel" name="labelSimState">
+                          <property name="text">
+                            <string>Остановлен</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="1" column="0">
+                        <widget class="QPushButton" name="btnSimStart">
+                          <property name="text">
+                            <string>Запустить БПЛА</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="1" column="1">
+                        <widget class="QPushButton" name="btnDisconnectUav">
+                          <property name="text">
+                            <string>Отключить БПЛА</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="2" column="0">
+                        <widget class="QPushButton" name="btnCorruptPacket">
+                          <property name="text">
+                            <string>Повредить пакет</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="2" column="1">
+                        <widget class="QPushButton" name="btnSkipPackets">
+                          <property name="text">
+                            <string>Пропустить 2 пакета</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="3" column="0" colspan="2">
+                        <widget class="QPushButton" name="btnSensorFault">
+                          <property name="text">
+                            <string>Отказ сенсора</string>
+                          </property>
+                          <property name="checkable">
+                            <bool>true</bool>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="4" column="0" colspan="2">
+                        <widget class="QCheckBox" name="checkAckEnabled">
+                          <property name="text">
+                            <string>Отвечать COMMAND_ACK</string>
+                          </property>
+                          <property name="checked">
+                            <bool>true</bool>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="5" column="0" colspan="2">
+                        <widget class="QCheckBox" name="checkSound">
+                          <property name="text">
+                            <string>Звук</string>
+                          </property>
+                          <property name="checked">
+                            <bool>true</bool>
+                          </property>
+                        </widget>
+                      </item>
+                    </layout>
+                  </widget>
+                </item>
+                <item>
+                  <widget class="QGroupBox" name="groupCommandLog">
+                    <property name="title">
+                      <string>Журнал команд</string>
+                    </property>
+                    <layout class="QVBoxLayout" name="layoutCommandLog">
+                      <item>
+                        <widget class="QListWidget" name="listCommandLog" />
+                      </item>
+                    </layout>
+                  </widget>
+                </item>
+              </layout>
+            </item>
+          </layout>
+        </item>
+      </layout>
+    </widget>
+  </widget>
+  <resources />
+  <connections />
+</ui>
